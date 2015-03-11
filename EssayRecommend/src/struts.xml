@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="back" extends="struts-default">
+		<global-results>
+			<result name="error" type="redirect">/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="error" />
+		</global-exception-mappings>
+		
+		<action name="backLogin" class="com.lzjtu.action.BackLoginAction" method="execute">
+			<result name="success" type="redirect">/backManage/backManage.jsp</result>
+		</action>
+		<action name="backLogout" class="com.lzjtu.action.BackLogoutAction" method="execute">
+			<result name="success" type="redirect">/backManage/login.jsp</result>
+		</action>
+		<action name="UserManage" class="com.lzjtu.action.UserAction" method="execute">
+			<result name="success">/backManage/UserManage.jsp</result>
+		</action>
+		<action name="UserAdd" class="com.lzjtu.action.UserAddAction" method="execute">
+			<result name="success" type="redirectAction">/backManage/UserManage</result>
+		</action>
+		<action name="UserDelete" class="com.lzjtu.action.UserDeleteAction" method="execute">
+			<result name="success" type="redirectAction">/backManage/UserManage</result>
+		</action>
+		<action name="DownloadManage" class="com.lzjtu.action.DownloadRecordAction" method="execute">
+			<result name="success">/backManage/DownloadManage.jsp</result>
+		</action>
+		<action name="DownloadDelete" class="com.lzjtu.action.DownloadRecordDeleteAction" method="execute">
+			<result name="success" type="redirectAction">/backManage/DownloadManage</result>
+		</action>
+		<action name="PublicationManage" class="com.lzjtu.action.PublicationAction" method="execute">
+			<result name="success">/backManage/PublicationManage.jsp</result>
+		</action>
+		<action name="PublicationDelete" class="com.lzjtu.action.PublicationDeleteAction" method="execute">
+			<result name="success" type="redirectAction">/backManage/PublicationManage</result>
+		</action>
+	</package>
+	
+	<package name="main" extends="struts-default">
+		<global-results>
+			<result name="error" type="redirect">/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="error" />
+		</global-exception-mappings>
+		
+		<action name="HomeAction" class="com.lzjtu.action.HomeAction" method="execute">
+			<result name="success">home.jsp</result>
+		</action>
+		<action name="SearchAction" class="com.lzjtu.action.SearchAction" method="execute">
+			<result name="success">discover.jsp</result>
+		</action>
+	</package>
+</struts>

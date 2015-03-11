@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+.container header {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	height: 100px;
+	background-color: #36F;
+	margin-top: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0; /* 删除上边距可以解决边距会超出其包含的块的问题。剩余的下边距可以使块与后面的任何元素保持一定距离。 */
+	padding-right: 15px;
+	padding-left: 15px;
+	/* 向块内的元素侧边（而不是块元素自身）添加填充可避免使用任何方框模型数学。此外，也可将具有侧边填充的嵌套块用作替代方法。 */
+}
+
+.showuser {
+	float: right;
+	margin-right: 10px;
+	line-height: 40px;;
+	color: #CCC;
+}
+
+.content {
+	padding: 10px 0;
+	width: 80%;
+	height: 420px;
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.btn>.glyphicon {
+	margin-right: 3px;
+}
+
+.pagination.square {
+	margin: 0; /* 去除外边距 */
+}
+
+.pagination.square>li>a, .pagination.square>li>span {
+	margin: 0 5px;
+	border: 1px solid #dddddd; /* 设置所有的边框都为1像素 */
+}
+
+.pagination.square>li:first-child>a, .pagination.square>li:first-child>span,
+	.pagination.square>li:last-child>a, .pagination.square>li:last-child>span
+	{
+	margin-left: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 0px; /* 取消圆角 */
+}
+
+.pagination.red>li>a, .pagination.red>li>span {
+	color: #f00;
+	border: 1px solid #f00;
+}
+
+.pagination.red>li>a:hover, .pagination.red>li>span:hover, .pagination.red>li>a:focus,
+	.pagination.red>li>span:focus {
+	background-color: #fdd5d5;
+}
+
+.pagination.red>.active>a, .pagination.red>.active>span, .pagination.red>.active>a:hover,
+	.pagination.red>.active>span:hover, .pagination.red>.active>a:focus,
+	.pagination.red>.active>span:focus {
+	color: #ffffff;
+	background-color: #f00;
+	border-color: #f00;
+}
+
+.pagination.red>.disabled>span, .pagination.red>.disabled>span:hover,
+	.pagination.red>.disabled>span:focus, .pagination.red>.disabled>a,
+	.pagination.red>.disabled>a:hover, .pagination.red>.disabled>a:focus {
+	color: #fdd5d5;
+	background-color: #ffffff;
+	border-color: #f00;
+}
+
+.pagination.green>li>a, .pagination.green>li>span {
+	color: #5aa414;
+	border: 1px solid #5aa414;
+}
+
+.pagination.green>li>a:hover, .pagination.green>li>span:hover,
+	.pagination.green>li>a:focus, .pagination.green>li>span:focus {
+	background-color: #d8edc3;
+}
+
+.pagination.green>.active>a, .pagination.green>.active>span, .pagination.green>.active>a:hover,
+	.pagination.green>.active>span:hover, .pagination.green>.active>a:focus,
+	.pagination.green>.active>span:focus {
+	color: #ffffff;
+	background-color: #5aa414;
+	border-color: #5aa414;
+}
+
+.pagination.green>.disabled>span, .pagination.green>.disabled>span:hover,
+	.pagination.green>.disabled>span:focus, .pagination.green>.disabled>a,
+	.pagination.green>.disabled>a:hover, .pagination.green>.disabled>a:focus
+	{
+	color: #d8edc3;
+	background-color: #ffffff;
+	border-color: #5aa414;
+}
+
+.table {
+	margin-bottom: 10px;
+}
+
+.container footer {
+	width: 100%;
+	text-align: center;
+	background-color: #60F;
+	padding: 10px 0;
+	position: relative; /* 这可以使 IE6 hasLayout 以正确方式进行清除 */
+	clear: both; /* 此清除属性强制 .container 了解列的结束位置以及包含列的位置 */
+	display: block;
+	color: #FFF;
+}

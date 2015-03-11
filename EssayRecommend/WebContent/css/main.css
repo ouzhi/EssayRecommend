@@ -1,0 +1,41 @@
+/* Header */
+#head { background:#FFF;  background-size: cover; min-height:320px;  padding-top:200px; color:#000; }
+.required{
+	width:580px;
+	height:40px;
+	border-radius:1px;
+}
+.search-btn{
+	height:40px;
+	width:100px;
+	border-radius:8px;
+	color:#000;
+	background-color:#93C;
+}
+#head.secondary { height:100px; min-height: 100px; padding-top:0px; }
+
+#head .lead { font-family:"Open sans", Helvetica, Arial; font-size:44px; margin-bottom:6px; color:white; line-height:1.15em; }
+
+.search-item {
+	padding-left:249px;
+}
+	
+.jumbotron {
+	text-align:center;
+	}
+.jumbotron li{ 
+	list-style:none;
+}
+
+.showResult li{
+	list-style:none;
+}
+
+
+.footer { background: #191919; padding: 15px 0; color: #777; font-size: 12px; }
+.footer a { color: #aaa; }
+.footer a:hover { color: #fff; }
+.footer p { margin: 0; }
+
+.widget-simplenav { margin-left:-5px; }		
+.widget-simplenav a{ margin:0 5px; }		
