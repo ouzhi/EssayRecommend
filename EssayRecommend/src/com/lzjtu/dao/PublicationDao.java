@@ -12,4 +12,5 @@ public interface PublicationDao {
 	public abstract List<Publication> queryByPage(int pageNo, int pageSize);
 	public abstract List<Publication> queryByPage(int pageNo, int pageSize, Object obj);
 	public abstract long total();
+	public abstract long total(Object obj);
 }

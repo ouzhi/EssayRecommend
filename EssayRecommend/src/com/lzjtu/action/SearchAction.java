@@ -47,11 +47,19 @@ public class SearchAction extends ActionSupport {
 		Document queryDoc = new Document();
 		Pattern pattern = Pattern.compile("^.*"+ this.searchValue +".*$",Pattern.CASE_INSENSITIVE);
 		queryDoc.append(this.searchItem, pattern);
+		System.out.println(queryDoc);
 		List<Publication> pList = publicationService.queryByPage(pageNo, pageSize, queryDoc) ;
+		long count = publicationService.total(queryDoc);
+		long pageCount = (count-1) / pageSize + 1 ;
 		if(pList != null) {
 			HttpServletRequest request = ServletActionContext.getRequest();
 			request.setAttribute("pList", pList);
-			//String url = request.getRequestURI();
+			String url = request.getRequestURI();
+			request.setAttribute("pageCount", pageCount);
+			request.setAttribute("url", url);
+			request.setAttribute("searchItem", this.searchItem);
+			request.setAttribute("searchValue", this.searchValue);
+			request.setAttribute("total", count);
 			return SUCCESS;
 		}
 		else return ERROR;

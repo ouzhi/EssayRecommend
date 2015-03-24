@@ -44,4 +44,33 @@ public class UserDaoImpl implements UserDao{
 		long num = HibernateUtil.getCount(hql, null);
 		return num;
 	}
+
+	@Override
+	public User queryOneByUsernameAndPassword(String username,
+			String password) {
+		String hql = "from User u where u.username = ? "
+				+ "and u.password = ?" ;
+				//+ "'"+ username + "' and u.password = '"
+				//+ password + "'" ;
+		String[] param = new String[2];
+		param[0] = username;
+		param[1] = password;
+		User u = (User) HibernateUtil.queryOne(hql, param);
+		return u;
+	}
+
+	@Override
+	public User queryOneByUsername(String username) {
+		String hql = "from User u where u.username = ?";
+		String[] param = new String[1];
+		param[0] = username;
+		User u = (User) HibernateUtil.queryOne(hql, param);
+		return u;
+	}
+	
+	
+	public static void main(String[] args) {
+		UserDao ud = new UserDaoImpl();
+		System.out.println(ud.queryOneByUsername("ouyang"));
+	}
 }

@@ -11,6 +11,16 @@ public class DownloadRecordService {
 		return DownloadRecordList ;
 	}
 	
+	public List<DownloadRecord> queryList(String hql, String[] param) {
+		List<DownloadRecord> DownloadRecordList = DaoFactory.getDownloadRecordDao().queryList(hql,param);
+		return DownloadRecordList ;
+	}
+	
+	public List<DownloadRecord> queryList(String hql, String[] param, int pageNo, int pageSize) {
+		List<DownloadRecord> DownloadRecordList = DaoFactory.getDownloadRecordDao().queryList(hql,param,pageNo,pageSize);
+		return DownloadRecordList ;
+	}
+	
 	public List<DownloadRecord> queryList(int pageNo, int pageSize) {
 		List<DownloadRecord> downloadRecordList = DaoFactory.getDownloadRecordDao().queryList(pageNo, pageSize);
 		return downloadRecordList ;
@@ -24,7 +34,14 @@ public class DownloadRecordService {
 		return DaoFactory.getDownloadRecordDao().total();
 	}
 	
+	public long total(String hql,String[] param){
+		return DaoFactory.getDownloadRecordDao().total(hql,param);
+	}
+	
 	public boolean delete(int download_Id) {
 		return DaoFactory.getDownloadRecordDao().delete(download_Id);
 	}
+	
+	
+	
 }

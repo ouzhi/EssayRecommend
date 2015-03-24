@@ -11,6 +11,10 @@ public class UserService {
 		return uList ;
 	}
 	
+	public User queryOneByUsernameAndPassword(String username,String password) {
+		return DaoFactory.getUserDao().queryOneByUsernameAndPassword(username, password);
+	}
+	
 	public List<User> queryList(int pageNo, int pageSize) {
 		List<User> uList = DaoFactory.getUserDao().queryList(pageNo, pageSize);
 		return uList ;
@@ -26,5 +30,9 @@ public class UserService {
 	
 	public boolean delete(int userId) {
 		return DaoFactory.getUserDao().delete(userId);
+	}
+	
+	public User queryOneByUsername(String username) {
+		return DaoFactory.getUserDao().queryOneByUsername(username);
 	}
 }

@@ -12,6 +12,7 @@ import java.net.URLConnection;
 import org.bson.Document;
 
 
+
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
@@ -22,8 +23,8 @@ import com.mongodb.client.MongoDatabase;
 public class DownloadPublication {
 	public static final String PATH = "D://毕业设计//PDF/";
 	public static final String PATH2 = "D://毕业设计//PDF2/";
-	private int num;     //记录数量
-	private int start;   //记录起始位置
+	private int num;     //璁板綍鏁伴噺
+	private int start;   //璁板綍璧峰浣嶇疆
 	
 	public DownloadPublication(int num, int start) {
 		this.num = num;
@@ -40,7 +41,7 @@ public class DownloadPublication {
 	}
 	
 	public void doDownload() throws Exception {
-		//获取Mongodb数据库连接
+		//鑾峰彇Mongodb鏁版嵁搴撹繛鎺�
 		MongoClient mongoClient = new MongoClient("localhost", 27017);
 		MongoDatabase db = mongoClient.getDatabase("computerEngineering") ;
 		MongoCollection<Document> coll = db.getCollection("publication");
@@ -50,8 +51,9 @@ public class DownloadPublication {
 			Document doc = cursor.next();
 			if (doc.get("view_url") != "") {
 				String url = (String) doc.get("view_url");
-				int pos = url.lastIndexOf("=");
-				String filename = url.substring(pos + 1);
+				//int pos = url.lastIndexOf("=");
+				//String filename = url.substring(pos + 1);
+				String filename = doc.get("_id").toString();
 				String filepath = PATH2 + filename + ".pdf";
 				System.out.println(filepath);
 				System.out.println(url);
@@ -68,9 +70,11 @@ public class DownloadPublication {
 		cursor.close();
 	}
 	
-	private void download(String urlString, String filepath, int i) throws MalformedURLException {
-		URL url = new URL(urlString);
+	private void download(String urlString, String filepath, int i){
+		URL url = null;
 		try {
+			url = new URL(urlString);
+			
 			URLConnection con;
 			con = url.openConnection();
 			InputStream is = con.getInputStream();
@@ -92,7 +96,7 @@ public class DownloadPublication {
 	
 	
 	public static void main(String[] args) {
-		DownloadPublication dp = new DownloadPublication(306,0);
+		DownloadPublication dp = new DownloadPublication(370,0);
 		dp.run();
 	}
 

@@ -211,6 +211,7 @@ public class HibernateUtil {
 				object = query.uniqueResult();
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println("≤È—Ø¥ÌŒÛ£°");
 		} finally {
 			if (session != null) {

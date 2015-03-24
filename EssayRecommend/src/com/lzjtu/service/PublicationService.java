@@ -42,6 +42,12 @@ public class PublicationService {
 	public long total() {
 		return DaoFactory.getPublicationDao().total();
 	}
+	
+	public long total(Object obj) {
+		return DaoFactory.getPublicationDao().total(obj);
+	}
+	
+	
 	public static void main(String[] args) {
 		PublicationService ps = new PublicationService();
 		Document doc = new Document();

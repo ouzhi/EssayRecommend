@@ -111,6 +111,18 @@ public class MongoDBConnection {
 		return num;
 	}
 	
+	
+	/**
+	 * get total document from database where equal some data*/
+	public static long getCount(String dbCollectionName,Object obj) {
+		MongoClient mongoClient = new MongoClient("localhost", 27017);
+		MongoDatabase db = mongoClient.getDatabase(dbName) ;
+		MongoCollection<Document> dbCollection = db.getCollection(dbCollectionName);
+		long num = dbCollection.count(obj);
+		mongoClient.close();
+		return num;
+	}
+	
 	public static void main(String[] args) {
 		PublicationService publicationService = new PublicationService(); 
 		List<Publication> pList = publicationService.queryByPage(1, 8) ;

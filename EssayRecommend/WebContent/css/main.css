@@ -31,6 +31,12 @@
 	list-style:none;
 }
 
+.showuser {
+	color:#EEE;
+}
+.showuser a { color: #aaa; }
+.showuser a:hover { color: #fff; }
+
 
 .footer { background: #191919; padding: 15px 0; color: #777; font-size: 12px; }
 .footer a { color: #aaa; }

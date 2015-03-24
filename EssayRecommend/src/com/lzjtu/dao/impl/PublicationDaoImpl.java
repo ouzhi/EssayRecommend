@@ -79,9 +79,14 @@ public class PublicationDaoImpl implements PublicationDao {
 	public long total() {
 		return MongoDBConnection.getCount("publication");
 	}
+	
+	
+	@Override
+	public long total(Object obj) {
+		return MongoDBConnection.getCount("publication",obj);
+	}
 
 	public static void main(String[] args) {
 	}
 
-	
 }

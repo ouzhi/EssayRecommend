@@ -32,8 +32,14 @@ public class DownloadRecordDaoImpl implements DownloadRecordDao {
 	}
 	
 	@Override
-	public List<DownloadRecord> queryList(String hql) {
-		List<DownloadRecord> downloadRecordList = HibernateUtil.query(hql, null);
+	public List<DownloadRecord> queryList(String hql,String[] param) {
+		List<DownloadRecord> downloadRecordList = HibernateUtil.query(hql, param);
+		return downloadRecordList;
+	}
+	
+	@Override
+	public List<DownloadRecord> queryList(String hql,String[] param,int pageNo, int pageSize) {
+		List<DownloadRecord> downloadRecordList = HibernateUtil.queryByPage(hql, param, pageNo, pageSize);
 		return downloadRecordList;
 	}
 
@@ -51,14 +57,16 @@ public class DownloadRecordDaoImpl implements DownloadRecordDao {
 		return num;
 	}
 	
-	public static void main(String[] args) {
-		DownloadRecordDao drd = new DownloadRecordDaoImpl();
-		String hql = "select top 10 from DownloadRecord drs group by drs.download_Pub_Id order by count(download_Id)";
-		List downloadRecordList = drd.queryList(hql);
-		for (int i = 0; i < downloadRecordList.size() ; i++) {
-			System.out.println(downloadRecordList.get(i));
-		}
+	@Override
+	public long total(String hql, String[] param) {
+		return HibernateUtil.getCount(hql, param);
 	}
+	
+	public static void main(String[] args) {
+		
+	}
+
+	
 
 	
 }

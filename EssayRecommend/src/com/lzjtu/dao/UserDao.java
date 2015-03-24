@@ -11,4 +11,6 @@ public interface UserDao {
 	public abstract List<User> queryList();
 	public abstract List<User> queryList(int pageNo, int pageSize);
 	public abstract long total();
+	public User queryOneByUsernameAndPassword(String username,String password);
+	public User queryOneByUsername(String username);
 }

@@ -45,7 +45,7 @@
 						</ul>
 					</li>
 					<li><a href="contact.html">联系我们</a></li>
-					<li><a class="btn active" href="signin.html">登录 / 注册</a></li>
+					<li><a class="btn active" href="signin.jsp">登录 / 注册</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
@@ -66,10 +66,6 @@
 			
 			<!-- Article main content -->
 			<article class="col-xs-12 maincontent">
-				<header class="page-header">
-					<h1 class="page-title">登录</h1>
-				</header>
-				
 				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 					<div class="panel panel-default">
 						<div class="panel-body">
@@ -77,14 +73,14 @@
 							<p class="text-center text-muted">没有账号，赶紧 <a href="register.jsp">注册</a>!</p>
 							<hr>
 							
-							<form method="post" action="#">
+							<form method="post" action="LoginAction">
 								<div class="top-margin">
 									<label>用户名  <span class="text-danger">*</span></label>
-									<input type="text" class="form-control">
+									<input type="text" name="username" class="form-control">
 								</div>
 								<div class="top-margin">
 									<label>密码 <span class="text-danger">*</span></label>
-									<input type="password" class="form-control">
+									<input type="password" name="password" class="form-control">
 								</div>
 
 								<hr>
@@ -100,7 +96,8 @@
 							</form>
 						</div>
 					</div>
-
+					<br>
+					<br>
 				</div>
 				
 			</article>
@@ -135,7 +132,6 @@
 				</div> <!-- /row of widgets -->
 			</div>
 		</div>
-	</footer>	
 		
 
 </body>

@@ -5,55 +5,136 @@
 
 <struts>
 	<package name="back" extends="struts-default">
+		<interceptors>
+			<interceptor name="BackLoginInterceptors"
+				class="com.lzjtu.interceptors.BackLoginInterceptors">
+				<param name="excludeName">backLogin</param>
+				<param name="sessionName">manager</param>
+			</interceptor>
+			<interceptor-stack name="BackInterceptors">
+				<interceptor-ref name="BackLoginInterceptors"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="BackInterceptors"></default-interceptor-ref>
+		<!-- 适用于所有的action -->
+
 		<global-results>
-			<result name="error" type="redirect">/error.jsp</result>
+			<result name="error" type="redirect">/backManage/error.jsp</result>
+			<result name="login" type="redirect">/backManage/login.jsp</result>
 		</global-results>
 		<global-exception-mappings>
-			<exception-mapping exception="java.lang.Exception" result="error" />
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
 		</global-exception-mappings>
-		
-		<action name="backLogin" class="com.lzjtu.action.BackLoginAction" method="execute">
-			<result name="success" type="redirect">/backManage/backManage.jsp</result>
+
+		<action name="backLogin" class="com.lzjtu.action.BackLoginAction"
+			method="execute">
+			<result name="success" type="redirect">/backManage/backManage.jsp
+			</result>
 		</action>
-		<action name="backLogout" class="com.lzjtu.action.BackLogoutAction" method="execute">
+		<action name="backLogout" class="com.lzjtu.action.BackLogoutAction"
+			method="execute">
 			<result name="success" type="redirect">/backManage/login.jsp</result>
 		</action>
-		<action name="UserManage" class="com.lzjtu.action.UserAction" method="execute">
+		<action name="UserManage" class="com.lzjtu.action.UserAction"
+			method="execute">
 			<result name="success">/backManage/UserManage.jsp</result>
 		</action>
-		<action name="UserAdd" class="com.lzjtu.action.UserAddAction" method="execute">
+		<action name="UserAdd" class="com.lzjtu.action.UserAddAction"
+			method="execute">
 			<result name="success" type="redirectAction">/backManage/UserManage</result>
 		</action>
-		<action name="UserDelete" class="com.lzjtu.action.UserDeleteAction" method="execute">
+		<action name="UserDelete" class="com.lzjtu.action.UserDeleteAction"
+			method="execute">
 			<result name="success" type="redirectAction">/backManage/UserManage</result>
 		</action>
-		<action name="DownloadManage" class="com.lzjtu.action.DownloadRecordAction" method="execute">
+		<action name="DownloadManage" class="com.lzjtu.action.DownloadRecordAction"
+			method="execute">
 			<result name="success">/backManage/DownloadManage.jsp</result>
 		</action>
-		<action name="DownloadDelete" class="com.lzjtu.action.DownloadRecordDeleteAction" method="execute">
-			<result name="success" type="redirectAction">/backManage/DownloadManage</result>
+		<action name="DownloadDelete" class="com.lzjtu.action.DownloadRecordDeleteAction"
+			method="execute">
+			<result name="success" type="redirectAction">/backManage/DownloadManage
+			</result>
 		</action>
-		<action name="PublicationManage" class="com.lzjtu.action.PublicationAction" method="execute">
+		<action name="PublicationManage" class="com.lzjtu.action.PublicationAction"
+			method="execute">
 			<result name="success">/backManage/PublicationManage.jsp</result>
 		</action>
-		<action name="PublicationDelete" class="com.lzjtu.action.PublicationDeleteAction" method="execute">
-			<result name="success" type="redirectAction">/backManage/PublicationManage</result>
+		<action name="PublicationDelete" class="com.lzjtu.action.PublicationDeleteAction"
+			method="execute">
+			<result name="success" type="redirectAction">/backManage/PublicationManage
+			</result>
 		</action>
 	</package>
-	
+
 	<package name="main" extends="struts-default">
+		<interceptors>
+			<interceptor name="LoginInterceptors"
+				class="com.lzjtu.interceptors.LoginInterceptors">
+				<param name="excludeName">DownloadFile,HistoryAction</param>
+				<param name="sessionName">user</param>
+			</interceptor>
+			<interceptor-stack name="myInterceptors">
+				<interceptor-ref name="LoginInterceptors"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myInterceptors"></default-interceptor-ref>
+		<!-- 适用于所有的action -->
+
 		<global-results>
 			<result name="error" type="redirect">/error.jsp</result>
+			<result name="login" type="redirect">signin.jsp</result>
 		</global-results>
 		<global-exception-mappings>
-			<exception-mapping exception="java.lang.Exception" result="error" />
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
 		</global-exception-mappings>
-		
-		<action name="HomeAction" class="com.lzjtu.action.HomeAction" method="execute">
+
+		<action name="HomeAction" class="com.lzjtu.action.HomeAction"
+			method="execute">
 			<result name="success">home.jsp</result>
 		</action>
-		<action name="SearchAction" class="com.lzjtu.action.SearchAction" method="execute">
+		<action name="SearchAction" class="com.lzjtu.action.SearchAction"
+			method="execute">
 			<result name="success">discover.jsp</result>
+		</action>
+		<action name="ShowAction" class="com.lzjtu.action.ShowAction"
+			method="execute">
+			<result name="success">show.jsp</result>
+		</action>
+		<action name="LoginAction" class="com.lzjtu.action.LoginAction"
+			method="execute">
+			<result name="index">home.jsp</result>
+			<result name="success" type="redirect">${prePage}</result>
+			<result name="error">signin.jsp</result>
+		</action>
+		<action name="RegisterAction" class="com.lzjtu.action.RegisterAction"
+			method="execute">
+			<result name="success">home.jsp</result>
+			<result name="error">register.jsp</result>
+		</action>
+		<action name="HistoryAction" class="com.lzjtu.action.HistoryAction"
+			method="execute">
+			<result name="success">history.jsp</result>
+		</action>
+		
+		<action name="DownloadFile" class="com.lzjtu.action.PubDownloadAction" method="execute">
+			<result name="success" type="stream">
+				<param name="contentType">${contentType}</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;fileName="${filename}"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="json" extends="json-default">
+		<action name="checkUsername" class="com.lzjtu.action.CheckNameAction"
+			method="execute">
+			<result type="json"></result>
 		</action>
 	</package>
 </struts>

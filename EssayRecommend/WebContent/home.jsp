@@ -40,30 +40,37 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="sidebar-left.html">下载历史</a></li>
+							<li><a href="HistoryAction?pageNo=1">下载历史</a></li>
 							<li class="active"><a href="sidebar-right.html">信息管理</a></li>
 						</ul>
 					</li>
 					<li><a href="contact.html">联系我们</a></li>
-					<li><a class="btn" href="signin.jsp">登录 / 注册</a></li>
+					<c:choose>
+              			<c:when test="${empty sessionScope.user }">            	
+              			<li><a class="btn" href="signin.jsp">登录 / 注册</a></li>
+              			</c:when>
+              			<c:otherwise>
+              			<li><span class="showuser"><a class="btn" href="" >${sessionScope.user.username }</a></span></li>
+              			</c:otherwise>
+              		</c:choose>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
 	</div> 
 	<!-- /.navbar -->
 
-	<!-- Header -->
+	<!-- Header --> 
 	<header id="head">
 		 <div class="search-area-wrapper">
             <div class="search-area container">
-  	<form id="search-form" class="search-form clearfix" method="post" action="SearchAction" autocomplete="off">
+  	<form id="search-form" class="search-form clearfix" method="post" action="SearchAction?pageNo=1" autocomplete="off">
                     <img src="images/sousuo.png">&nbsp;&nbsp;<input class="search-term required" type="text" id="s" name="searchValue" placeholder="标题/关键词/作者" title="请输入一个搜索项!" />
                     <input class="search-btn" type="submit" value="搜索" />
                     <br>
                     <div class="search-item">
-                    <input type="radio" name="searchItem" value="title" checked>标题</input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="searchItem" value="authors">作者</input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="searchItem" value="keywords">关键词</input>
+                    <input type="radio" name="searchItem" value="title" checked>标题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="searchItem" value="authors">作者&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="searchItem" value="keywords">关键词
                     </div>
                     <div id="search-error-container"></div>
                 </form>
@@ -84,7 +91,7 @@
 					<div>
                     	<ul>
                         	<c:forEach items="${sessionScope.pList }" var="publication">
-            					<li><a href="#">${publication.title }</a></li>
+            					<li><a href="ShowAction?p_id=${publication._id}">${publication.title }</a></li>
             				</c:forEach>
                         </ul>
 					</div>
@@ -125,7 +132,6 @@
 			</div>
 		</div>
 
-	</footer>	
 		
 </body>
 </html>

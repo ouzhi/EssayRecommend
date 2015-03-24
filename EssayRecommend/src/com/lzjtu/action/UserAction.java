@@ -36,6 +36,7 @@ public class UserAction extends ActionSupport {
 			String url = request.getRequestURI();
 			request.setAttribute("pageCount", pageCount);
 			request.setAttribute("url", url);
+			System.out.println(url);
 			return SUCCESS;
 		}
 		else return ERROR;
