@@ -23,6 +23,19 @@ public class DownloadRecordDaoImpl implements DownloadRecordDao {
 	public void update() {
 		
 	}
+	
+
+	@Override
+	public boolean queryOne(int user_Id, String pub_Id) {
+		String hql = "from DownloadRecord dlr where dlr.download_User_Id = ? and dlr.download_Pub_Id = ?";
+		String[] param = new String[2];
+		param[0] = "" + user_Id;
+		param[1] = "" + pub_Id;
+		if(HibernateUtil.queryOne(hql, param) != null) {
+			return false;
+		}
+		return true;
+	}
 
 	@Override
 	public List<DownloadRecord> queryList() {
@@ -57,6 +70,7 @@ public class DownloadRecordDaoImpl implements DownloadRecordDao {
 		return num;
 	}
 	
+	
 	@Override
 	public long total(String hql, String[] param) {
 		return HibernateUtil.getCount(hql, param);
@@ -65,6 +79,8 @@ public class DownloadRecordDaoImpl implements DownloadRecordDao {
 	public static void main(String[] args) {
 		
 	}
+
+	
 
 	
 

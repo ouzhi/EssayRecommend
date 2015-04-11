@@ -6,6 +6,9 @@ import com.lzjtu.dao.DaoFactory;
 import com.lzjtu.model.DownloadRecord;
 
 public class DownloadRecordService {
+	public boolean queryOne(int user_Id, String pub_Id) {
+		return DaoFactory.getDownloadRecordDao().queryOne(user_Id, pub_Id);
+	}
 	public List<DownloadRecord> queryList() {
 		List<DownloadRecord> DownloadRecordList = DaoFactory.getDownloadRecordDao().queryList();
 		return DownloadRecordList ;

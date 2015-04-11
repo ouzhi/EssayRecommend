@@ -8,6 +8,7 @@ import com.lzjtu.model.DownloadRecord;
 public interface DownloadRecordDao {
 	public abstract boolean save(DownloadRecord u);
 	public abstract boolean delete(int download_Id);
+	public abstract boolean queryOne(int user_Id, String pub_Id);
 	public abstract void update();
 	public abstract List<DownloadRecord> queryList();
 	public abstract List<DownloadRecord> queryList(String hql,String[] param);

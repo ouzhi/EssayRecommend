@@ -31,20 +31,20 @@
 			<div class="navbar-header">
 				<!-- Button for smallest screens -->
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-				<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Progressus HTML5 template"></a>
+				<a class="navbar-brand" href="home.jsp"><img src="images/logo.png" alt="Progressus HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					<li><a href="home.jsp">首页</a></li>
-					<li><a href="about.html">发现论文</a></li>
+					<li><a href="discover.jsp">发现论文</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="sidebar-left.html">下载历史</a></li>
-							<li class="active"><a href="sidebar-right.html">信息管理</a></li>
+							<li><a href="#">下载历史</a></li>
+							<li class="active"><a href="viewinformation.jsp">信息管理</a></li>
 						</ul>
 					</li>
-					<li><a href="contact.html">联系我们</a></li>
+					<li><a href="contact.jsp">联系我们</a></li>
 					<c:choose>
               			<c:when test="${empty sessionScope.user }">            	
               			<li><a class="btn" href="signin.jsp">登录 / 注册</a></li>
@@ -130,11 +130,11 @@
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="simplenav">
-								<a href="#">首页</a> | 
-								<a href="about.html">发现</a> |
-								<a href="sidebar-right.html">下载历史</a> |
-								<a href="contact.html">联系我们</a> |
-								<b><a href="signup.html">注册</a></b>
+								<a href="home.jsp">首页</a> | 
+								<a href="discover.jsp">发现</a> |
+								<a href="statement.html">版权声明</a> |
+								<a href="contact.jsp">联系我们</a> |
+								<b><a href="register.jsp">注册</a></b>
 							</p>
 						</div>
 					</div>

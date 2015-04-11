@@ -5,11 +5,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
 import org.bson.Document;
+
 
 
 
@@ -20,7 +20,7 @@ import com.mongodb.client.MongoDatabase;
 
 
 
-public class DownloadPublication {
+public class DownloadPublication extends Thread{
 	public static final String PATH = "D://毕业设计//PDF/";
 	public static final String PATH2 = "D://毕业设计//PDF2/";
 	private int num;     //璁板綍鏁伴噺
@@ -96,8 +96,20 @@ public class DownloadPublication {
 	
 	
 	public static void main(String[] args) {
-		DownloadPublication dp = new DownloadPublication(370,0);
-		dp.run();
+		DownloadPublication dp = new DownloadPublication(11800,7770);
+		dp.start();
+		
+		DownloadPublication dp1 = new DownloadPublication(11800,7770);
+		dp1.start();
+		
+		DownloadPublication dp2 = new DownloadPublication(11800,7770);
+		dp2.start();
+		
+		DownloadPublication dp3 = new DownloadPublication(11800,7770);
+		dp3.start();
+		
+		DownloadPublication dp4 = new DownloadPublication(11800,7770);
+		dp4.start();
 	}
 
 }

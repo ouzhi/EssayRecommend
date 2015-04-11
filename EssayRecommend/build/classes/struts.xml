@@ -99,7 +99,7 @@
 		</action>
 		<action name="SearchAction" class="com.lzjtu.action.SearchAction"
 			method="execute">
-			<result name="success">discover.jsp</result>
+			<result name="success">searche.jsp</result>
 		</action>
 		<action name="ShowAction" class="com.lzjtu.action.ShowAction"
 			method="execute">

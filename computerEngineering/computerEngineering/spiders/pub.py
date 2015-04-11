@@ -29,7 +29,7 @@ class PublicationSpider(Spider):
       print pub_urls
       for pub_url in pub_urls:    
    	 print pub_url
-         #yield Request(url=pub_url, callback=self.parse_pubs, dont_filter=True)
+         yield Request(url=pub_url, callback=self.parse_pubs, dont_filter=True)
 
    def parse_pubs(self, response):
    
@@ -57,7 +57,7 @@ class PublicationSpider(Spider):
       	pubItem = PublicationItem()
         pubItem['title'] = title
        
-   	pubItem['title_English'] = title
+   	pubItem['title_English'] = title_English
         pubItem['authors'] = authors
         pubItem['publication_url'] = response.url
         pubItem['view_url'] = download_urls
@@ -74,3 +74,4 @@ class PublicationSpider(Spider):
        
         spec = { "title": pubItem['title'] }
         computerEngineering.publication.update(spec, {'$set': dict(pubItem)}, upsert=True)
+        #computerEngineering.publication.update(spec, {"title_English": pubItem['title_English']}, upsert=False)

@@ -13,7 +13,7 @@ from bson.objectid import ObjectId
 
 
 class PublicationSpider(Spider):
-   name = "publication"
+   name = "publications"
    allowed_domains = ["http://www.ecice06.com"]
    start_urls = []
    basic_url = "http://www.ecice06.com/CN/article/showByInYearList.do?flag=2&time=6&pager="

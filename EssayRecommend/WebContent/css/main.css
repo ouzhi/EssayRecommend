@@ -26,7 +26,9 @@
 .jumbotron li{ 
 	list-style:none;
 }
-
+.recommendList li{
+	list-style:none;
+}
 .showResult li{
 	list-style:none;
 }

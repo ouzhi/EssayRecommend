@@ -128,14 +128,16 @@
 			<div class="row">
 
 				<div class="col-md-6 widget">
-					<div class="widget-body">
-						<p class="simplenav">
-							<a href="home.jsp">首页</a> | <a href="about.html">发现</a> | <a
-								href="sidebar-right.html">下载历史</a> | <a href="contact.html">联系我们</a>
-							| <b><a href="signup.html">注册</a></b>
-						</p>
+						<div class="widget-body">
+							<p class="simplenav">
+								<a href="home.jsp">首页</a> | 
+								<a href="discover.jsp">发现</a> |
+								<a href="statement.html">版权声明</a> |
+								<a href="contact.jsp">联系我们</a> |
+								<b><a href="#">注册</a></b>
+							</p>
+						</div>
 					</div>
-				</div>
 
 				<div class="col-md-6 widget">
 					<div class="widget-body">

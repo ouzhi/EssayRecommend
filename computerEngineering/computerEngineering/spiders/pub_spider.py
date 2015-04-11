@@ -19,7 +19,7 @@ class PubSpider(Spider):
    
    basic_url = "http://www.ecice06.com/CN/abstract/abstract"
    
-   for i in range (25902,26209,1):
+   for i in range (24000,26272,1):
    
   	start_urls.append(basic_url + str(i) + ".shtml")
    
@@ -32,7 +32,7 @@ class PubSpider(Spider):
      	#print response	
    	doi = ''.join(response.xpath('//meta[@name="DC.Identifier"]/@content').extract())
       	title = ''.join(response.xpath('//meta[@name="DC.Title"]/@content').extract())
-  	title_English = ''.join(response.xpath('//meta[@name="citation_title"]/@content').extract())      
+  	title_English = ''.join(response.xpath('//meta[@name="citation_title"][2]/@content').extract())      
         authors = response.xpath('//meta[@name="DC.Contributor"]/@content').extract()      
    	download_urls = ''.join(response.xpath('//meta[@name="citation_pdf_url"]/@content').extract())      
    	abstract = ''.join(response.xpath('//td[@class="J_zhaiyao"][1]/text()').extract())    
@@ -49,7 +49,7 @@ class PubSpider(Spider):
       	pubItem = PublicationItem()
         pubItem['title'] = title
        
-   	pubItem['title_English'] = title
+   	pubItem['title_English'] = title_English
         pubItem['authors'] = authors
         pubItem['publication_url'] = response.url
         pubItem['view_url'] = download_urls

@@ -43,7 +43,7 @@ public class PubDownloadAction extends ActionSupport{
 		User user = (User) request.getSession().getAttribute("user");
 		dlr.setDownload_User_Id(user.getUser_Id());
 		DownloadRecordService drs = new DownloadRecordService();
-		drs.save(dlr);
+		if(drs.queryOne(dlr.getDownload_User_Id(), dlr.getDownload_Pub_Id())) drs.save(dlr);
 		return SUCCESS;
 	}
 	

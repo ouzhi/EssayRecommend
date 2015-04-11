@@ -42,8 +42,7 @@
             		<td>${downloadRecord.download_Pub_Id}</td>
             		<td>${downloadRecord.download_User_Id}</td>
             		<td>
-            		<button class="btn  btn-xs btn-primary"><span class="glyphicon glyphicon-edit"></span>修改</button>
-                    <a href="DownloadRecordDelete?download_Id=${downloadRecord.download_Id}"><button class="btn  btn-xs btn-warning"><span class="glyphicon glyphicon-remove"></span>
+                    <a href="DownloadDelete?download_Id=${downloadRecord.download_Id}"><button class="btn  btn-xs btn-warning"><span class="glyphicon glyphicon-remove"></span>
                    	 删除</button></a>
                     </td>
                 </tr>
